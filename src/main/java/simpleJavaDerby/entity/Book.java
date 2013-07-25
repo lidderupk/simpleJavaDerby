@@ -13,8 +13,7 @@ import javax.persistence.NamedQuery;
  */
 
 @Entity
-@NamedQuery(name = "findBookByTitle", 
-        query = "SELECT b FROM Book b WHERE b.title ='H2G2'")
+@NamedQuery(name = "findAllBooks", query = "SELECT b FROM Book b")
 public class Book {
     
     @Id
