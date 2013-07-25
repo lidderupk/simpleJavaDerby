@@ -44,7 +44,8 @@ public class BookTest {
     public void shouldCreateABook() throws Exception {
         // Creates an instance of book
         Book book = new Book();
-        book.setTitle("The Hitchhiker's Guide to the Galaxy");
+        final String bookName = "The Hitchhiker's Guide to the Galaxy";
+        book.setTitle(bookName);
         book.setPrice(12.5F);
         book.setDescription("Science fiction comedy book");
         book.setIsbn("1-84023-742-2");
@@ -59,5 +60,6 @@ public class BookTest {
         // Retrieves all the books from the database
         List<Book> books = em.createNamedQuery("findAllBooks").getResultList();
         Assert.assertEquals(1, books.size());
+        Assert.assertEquals(bookName, books.get(0).getTitle());
     }
 }
